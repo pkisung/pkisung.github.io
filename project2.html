@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Project 2 - Suika Game</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="index.html" class="image avatar">
+                <img src="images/avatar.jpg" alt="Back to Home" />
+            </a>
+            <h1><strong>Suika Game (Watermelon Game)</strong></h1>
+            <p>A physics-based fruit merging game built with JavaScript, Matter.js, and Vite.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div id="main">
+        <!-- Project Overview -->
+        <section id="overview">
+            <img src="images/suikagame/suikagame.jpeg" alt="Suika Game Overview" class="image fit" style="width:100%; max-width: 300px;"/>
+            <header class="major">
+                <h2>Project Overview</h2>
+            </header>
+            <p>
+                Suika Game is a fun physics-based puzzle game where players merge falling fruits to create larger fruits. 
+                Built using JavaScript and powered by Matter.js physics engine, this game provides a smooth and dynamic experience.
+            </p>
+        </section>
+
+        <!-- Key Features -->
+        <section id="features">
+            <header class="major">
+                <h2>Key Features</h2>
+            </header>
+            <ul>
+                <li><strong>Physics-based Gameplay</strong> - Matter.js engine ensures realistic collisions and gravity effects.</li>
+                <li><strong>Fruit Merging</strong> - Identical fruits combine to form larger ones upon collision.</li>
+                <li><strong>Dynamic Rendering</strong> - Optimized frame updates using JavaScript and Canvas API.</li>
+                <li><strong>Fast Development with Vite</strong> - Instant refresh and quick build times.</li>
+            </ul>
+        </section>
+
+        <!-- Why JavaScript & Matter.js? -->
+        <section id="why-js">
+            <header class="major">
+                <h2>Why JavaScript & Matter.js?</h2>
+            </header>
+            <p>
+                JavaScript provides a highly flexible and efficient development environment for web-based games.
+                Matter.js enhances the game by introducing real-world physics with simple API integration.
+            </p>
+            <ul>
+                <li><strong>Lightweight and Fast</strong> - JavaScript and Vite ensure smooth performance.</li>
+                <li><strong>Physics Simulation</strong> - Realistic movement and collision detection with Matter.js.</li>
+                <li><strong>Cross-Browser Compatibility</strong> - Works seamlessly across different devices.</li>
+            </ul>
+        </section>
+
+        <!-- Game Mechanics -->
+        <section id="game-mechanics">
+            <header class="major">
+                <h2>Game Mechanics</h2>
+            </header>
+            <h3>Fruit Merging Logic</h3>
+            <video width="100%" controls>
+                <source src="videos/record.mov" type="video/mp4">
+            </video>            
+            <pre><code>
+// Detect collision and merge fruits
+Matter.Events.on(engine, 'collisionStart', function(event) {
+    event.pairs.forEach(pair => {
+        let fruitA = pair.bodyA;
+        let fruitB = pair.bodyB;
+        if (canMerge(fruitA, fruitB)) {
+            mergeFruits(fruitA, fruitB);
+        }
+    });
+});
+            </code></pre>
+            <h3>Physics Engine Setup</h3>
+            <pre><code>
+// Create Matter.js physics world
+const engine = Matter.Engine.create();
+const world = engine.world;
+const render = Matter.Render.create({
+    element: document.body,
+    engine: engine
+});
+Matter.Engine.run(engine);
+Matter.Render.run(render);
+            </code></pre>
+        </section>
+
+        <!-- How to Run the Project -->
+        <section id="setup">
+            <header class="major">
+                <h2>How to Run</h2>
+            </header>
+            <p>To run the project locally, follow these steps:</p>
+            <pre><code>
+npm install  # Install dependencies
+npm run dev  # Start the development server (Vite)
+            </code></pre>
+        </section>
+
+        <!-- Conclusion -->
+        <section id="conclusion">
+            <header class="major">
+                <h2>Conclusion</h2>
+            </header>
+            <h3>Final Game UI</h3>
+            <img src="images/suikagame/suika_gameUI.jpg" alt="Final Game Screen" class="image fit" style="width:100%; max-width: 300px;"/>
+        </section>
+            <p>
+                Suika Game demonstrates the power of JavaScript and Matter.js in creating engaging physics-based games.
+                With optimized performance, a dynamic physics engine, and simple yet addictive gameplay, this project serves 
+                as a great example of modern game development for the web.
+            </p>
+        </section>
+
+<!-- More Details & GitHub Link -->
+<section id="github">
+    <header class="major">
+        <h2>More Details & Source Code</h2>
+    </header>
+    <p>
+        For a deeper dive into the codebase, implementation details, check out the full project on GitHub:
+    </p>
+    <p>
+        <a href="https://github.com/pkisung/Watermelon-game" target="_blank" class="button">📂 View on GitHub</a>
+    </p>
+</section>
+
+        <!-- Back to Portfolio -->
+        <section>
+            <a href="index.html" class="button">🔙 Back to Portfolio</a>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Project 3 - Room Booking Service</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="index.html" class="image avatar">
+                <img src="images/avatar.jpg" alt="Back to Home" />
+            </a>
+            <h1><strong>Room Booking Service</strong></h1>
+            <p>A convenient online room reservation system</p>
+        </div>
+    </header>
+
+    <!-- Project Overview -->
+    <section id="main">
+        <h2>Service Overview</h2>
+        <p>
+            The <strong>Room Booking Service</strong> is a web-based system designed to streamline the 
+            room reservation process for students and staff within institutions. 
+            Users can browse available rooms, book them in advance, and manage their reservations seamlessly.
+        </p>
+
+        <!-- Placeholder Image -->
+        <img src="images/roombooking/roombookingsystem.png" alt="Room Booking Service" class="image fit thumb" style = "width: 100%; width: 300px;"/>
+    </section>
+
+    <!-- Key Features -->
+    <section>
+        <h2>Key Features</h2>
+        <p>
+            This system provides an efficient way to manage rooms by allowing different user roles 
+            to perform specific actions. Below are the core functionalities:
+        </p>
+        <ul>
+            <li><strong>Staff</strong> can create and manage rooms</li>
+            <li><strong>Students</strong> can browse, book, and manage reservations</li>
+            <li><strong>Real-time room activation</strong> for better scheduling</li>
+            <li><strong>Secure login system</strong> with session management</li>
+        </ul>
+    </section>
+
+    <!-- Authentication System -->
+    <section>
+        <h2>User Authentication</h2>
+        <p>
+            To access the service, users need to log in using their credentials. 
+            The system supports different user roles: 
+            <strong>Students</strong> for booking rooms and <strong>Staff</strong> for managing them.
+        </p>
+
+        <h3> Login System (loginpage.php)</h3> 
+        <img src="images/roombooking/loginpage.png" alt="Login Page Example" class="image fit thumb" style = "width: 300%; width: 600px;"/>
+        <ul>
+            <li>Users can log in using their institution-provided credentials</li>
+            <li>Supports "Remember Me" option to keep users logged in</li>
+            <li>Invalid login attempts show error messages for security</li>
+        </ul>
+
+        <h3>Logout Feature (logout.php)</h3>
+        <p>
+            Users can securely log out of the system. Upon logging out, all session data is cleared, 
+            and the user is redirected to the homepage.
+        </p>
+    </section>
+
+    <!-- Room Booking System -->
+    <section>
+        <h2>Room Booking System</h2>
+        <p>
+            After logging in, users can access different features based on their role. 
+            Below is an overview of the available functionalities for <strong>Staff</strong> and <strong>Students</strong>.
+        </p>
+
+        <h3>🛠 Staff Features</h3>
+
+        <h4>Room Creation (createroom.php)</h4>
+        <img src="images/roombooking/createroom.png" alt="Room Creation Example" class="image fit thumb" style = "width: 300%; width: 600px;">
+        <p>
+            The room creation module allows staff members to set up rooms for reservation. 
+            When creating a room, staff can define:
+        </p>
+        <ul>
+            <li>Room name and description</li>
+            <li>Available time slots and duration</li>
+            <li>Maximum number of people per booking</li>
+        </ul>
+
+        <h4>Room Activation (launchroom.php)</h4>
+        <img src="images/roombooking/launchroom.png" alt="Room Activation Example" class="image fit thumb" style = "width: 300%; width: 600px;">
+        <p>
+            Once a room is created, it must be activated before it can be used. 
+            Staff members can launch a room, making it available for students to reserve. 
+            After the set time expires, the room is automatically deactivated.
+        </p>
+        <ul>
+            <li>Active rooms are available for reservation</li>
+            <li>Expired rooms are automatically disabled</li>
+        </ul>
+
+        <h3>Student Features</h3>
+
+        <h4>Room Reservation (index.php)</h4>
+        <img src="images/roombooking/index.png" alt="Room Reservation Example" class="image fit thumb" style = "width: 300%; width: 600px;">
+        <p>
+            Students can view a list of available rooms and book them for specific time slots. 
+            The reservation process includes:
+        </p>
+        <ul>
+            <li>Searching for available rooms</li>
+            <li>Selecting a preferred time slot</li>
+            <li>Confirming the reservation</li>
+        </ul>
+
+        <h4>Reservation History (mybookingpage.php)</h4>
+        <img src="images/roombooking/mybooking.png" alt="Reservation History Example" class="image fit thumb" style = "width: 300%; width: 600px;">
+        <p>
+            Students can check their past and upcoming bookings under the "My Bookings" section. 
+            If needed, they can also cancel upcoming reservations before the booking period begins.
+        </p>
+        <ul>
+            <li>View list of booked rooms and reservation details</li>
+            <li>Cancel a reservation if necessary</li>
+        </ul>
+    </section>
+
+    <!-- Technologies Used -->
+    <section>
+        <h2>Technologies Used</h2>
+        <p>
+            The Room Booking Service is built using a combination of **server-side** and **client-side** technologies:
+        </p>
+        <ul>
+            <li><strong>PHP</strong> - Manages server logic and session handling</li>
+            <li><strong>MySQL</strong> - Stores and retrieves reservation data</li>
+            <li><strong>HTML, CSS, JavaScript</strong> - Provides a user-friendly interface</li>
+            <li><strong>XAMPP</strong> - Used as a local development server</li>
+        </ul>
+    </section>
+
+   <!-- More Details & GitHub Link -->
+<section id="github">
+    <header class="major">
+        <h2>More Details & Source Code</h2>
+    </header>
+    <p>
+        For a deeper dive into the codebase, implementation details check out the full project on GitHub:
+    </p>
+    <p>
+        <a href="https://github.com/pkisung/room-booking-site" target="_blank" class="button">📂 View on GitHub</a>
+    </p>
+</section>
+
+        <!-- Back to Portfolio -->
+        <section>
+            <a href="index.html" class="button">🔙 Back to Portfolio</a>
+        </section>
+    </div>
+</body>
+</html>
+
