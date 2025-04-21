@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Project 4 - Stock Predictor API</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="index.html" class="image avatar">
+                <img src="images/avatar.jpg" alt="Back to Home" />
+            </a>
+            <h1><strong>Stock Predictor API</strong></h1>
+            <p>AI-based stock prediction using LSTM & Docker</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div id="main">
+
+        <!-- Overview -->
+        <section id="overview">
+            <header class="major">
+                <h2>Overview</h2>
+            </header>
+            <p>
+                This project is a stock price prediction application built using LSTM (Long Short-Term Memory) neural networks to predict stock prices based on historical data.
+                It uses Yahoo Finance API to fetch data and displays 7-day forecasts with intuitive graph visualization.
+            </p>
+            <img src="images/stockpredictor/stockpredictor cover image.png" alt="Overview Screenshot" class="image fit" style="width:300%; max-width: 500px;"/> 
+        </section>
+
+          <!-- Project Structure -->
+          <section id="structure">
+            <header class="major">
+                <h2>Project Structure</h2>
+            </header>
+            <pre><code>
+stock-predictor/
+├── app/                # Flask app
+│   ├── templates/
+│   ├── static/
+│   ├── main.py         # Flask routes
+│   └── model.py        # LSTM logic
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
+└── README.md
+            </code></pre>
+        </section>
+
+        <!-- Docker Setup -->
+        <section id="docker-setup">
+            <header class="major">
+                <h2>Docker Setup</h2>
+            </header>
+            <p>
+                The application is containerized using Docker to ensure consistent development and deployment. 
+                After cloning the repository, use the following commands to build and run the container:
+            </p>
+            <pre><code>
+            docker-compose build --no-cache
+            docker-compose up
+            </code></pre>
+            <p>
+                Once running, the app is accessible via <code>http://127.0.0.1:5050</code>. 
+                Below is an example of the terminal output after successfully running the application:
+            </p>
+            <img src="images/stockpredictor/docker_setup.png" alt="Docker Compose Output" class="image fit" />
+        </section>
+
+
+        <!-- flask  -->
+        <section id="flask-api">
+            <header class="major">
+                <h2>Flask API Structure</h2>
+            </header>
+            <p>
+                The core backend logic is built using <strong>Flask</strong>. It defines two main routes:
+            </p>
+            <ul>
+                <li><strong>GET /</strong> - Renders the homepage with a form to enter a stock ticker</li>
+                <li><strong>POST /predict</strong> - Receives the ticker symbol, triggers LSTM prediction, and returns results in JSON</li>
+            </ul>
+            <p>
+                The prediction results include:
+            </p>
+            <ul>
+                <li><code>predicted_prices</code>: List of predicted closing prices for the next 7 days</li>
+                <li><code>volatility</code>: Difference between max and min predicted prices</li>
+                <li><code>graph_url</code>: URL to generated graph image</li>
+                <li><code>current_price</code>: Latest real-time stock price</li>
+            </ul>
+        
+            <img src="images/stockpredictor/code_flask_route.png" alt="Flask Route Code Example" class="image fit" style = "width: 500px;"/>
+        
+            <p class="caption">
+                ▲ <code>main.py</code> showing Flask route logic for receiving and returning predictions.
+            </p>
+        </section>
+        
+        <!-- Model -->
+        <section id="lstm-model">
+            <header class="major">
+                <h2>LSTM Prediction Model</h2>
+            </header>
+            <p>
+                The LSTM model is implemented in <code>model.py</code> using TensorFlow. It processes time-series stock price data and predicts the next 7 days.
+            </p>
+            <ul>
+                <li>Data is normalized and reshaped into LSTM-compatible sequences</li>
+                <li>The trained model outputs future price predictions</li>
+                <li>The results are saved and plotted using Matplotlib</li>
+            </ul>
+        
+            <img src="images/stockpredictor/code_lstm_model.png" alt="LSTM Model Code Example" class="image fit" style="width: 500px;" />
+            <p class="caption">
+                ▲ Key portion of LSTM implementation and prediction logic in <code>model.py</code>.
+            </p>
+        </section>
+        
+        <!-- Key Features -->
+        <section id="features">
+            <header class="major">
+                <h2>Key Features</h2>
+            </header>
+            <ul>
+                <li><strong>7-Day Price Prediction:</strong> LSTM model forecasts upcoming prices</li>
+                <li><strong>Graph Visualization:</strong> Visual output using Matplotlib</li>
+                <li><strong>Volatility Measurement:</strong> Calculates and displays price fluctuation</li>
+                <li><strong>Current Price Display:</strong> Shows most recent market price</li>
+                <li><strong>Dockerized:</strong> Entire app runs inside a container</li>
+            </ul>
+            <img src="images/stockpredictor/stockpredictor_UI.png" alt="Feature Screenshot" class="image fit" style="width: 450px;" />
+        </section>
+
+        <!-- How It Works -->
+        <section id="how">
+            <header class="major">
+                <h2>How It Works</h2>
+            </header>
+            <p>
+                The application fetches stock data using <strong>yfinance</strong> and trains a <strong>TensorFlow LSTM model</strong>. After prediction, 
+                it generates a graph and returns results via a Flask API.
+            </p>
+            <ul>
+                <li><strong>GET /</strong>: Homepage with input for ticker</li>
+                <li><strong>POST /predict</strong>: Returns JSON with prices, graph URL, current price, and volatility</li>
+            </ul>
+            <img src="images/stockpredictor/stockpredictor_graph.png" alt="Prediction Graph Example" class="image fit" />
+        </section>
+
+        <!-- Docker Guide -->
+        <section id="docker-guide">
+            <header class="major">
+                <h2>Running with Docker</h2>
+            </header>
+            <ol>
+                <li>Clone the repo: <code>git clone https://github.com/pkisung/stock-predictor</code></li>
+                <li>Build image: <code>docker-compose build --no-cache</code></li>
+                <li>Run: <code>docker-compose up -d</code></li>
+                <li>Visit: <code>http://127.0.0.1:5050/</code></li>
+            </ol>
+        </section>
+
+        <section id="docker-files">
+            <header class="major">
+                <h2>Configuration Files</h2>
+            </header>
+            <p>
+                The following files configure how the environment is built and dependencies are managed:
+            </p>
+        
+            <h3>Dockerfile</h3>
+            <ul>
+                <li>Uses <code>python:3.9</code> as the base image</li>
+                <li>Copies project files and installs dependencies</li>
+                <li>Exposes port <code>5050</code> and runs <code>main.py</code></li>
+            </ul>
+            <img src="images/stockpredictor/dockerfile_code.png" alt="Dockerfile Sample" class="image fit" style = "width: 100%; max-width: 300px;"/>
+            <p class="caption">
+                ▲ Core Dockerfile commands used to containerize the app
+            </p>
+        
+            <h3>docker-compose.yml</h3>
+            <ul>
+                <li>Defines the service name and build context</li>
+                <li>Maps port <code>5050</code> to local machine</li>
+            </ul>
+            <img src="images/stockpredictor/docker_compose_code.png" alt="Docker Compose File" class="image fit" style="width: 100%; max-width: 300px;" />
+            <p class="caption">
+                ▲ Sample docker-compose configuration
+            </p>
+        
+            <h3>requirements.txt</h3>
+            <ul>
+                <li>Lists essential Python libraries such as Flask, TensorFlow, Matplotlib, and yfinance</li>
+            </ul>
+            <img src="images/stockpredictor/requirments_code.png" alt="Requirements File" class="image fit" style="width:100%; max-width: 300px;"/>
+            <p class="caption">
+                ▲ Required packages for the application
+            </p>
+        </section>
+        
+
+        <!-- GitHub -->
+        <section id="github">
+            <header class="major">
+                <h2>More Details & Source Code</h2>
+            </header>
+            <p>
+                Explore the full codebase and documentation on GitHub:
+            </p>
+            <p>
+                <a href="https://github.com/pkisung/stock-predictor" target="_blank" class="button">📂 View on GitHub</a>
+            </p>
+        </section>
+
+        <!-- Back to Portfolio -->
+        <section>
+            <a href="index.html" class="button">🔙 Back to Portfolio</a>
+        </section>
+
+    </div>
+</body>
+</html>
